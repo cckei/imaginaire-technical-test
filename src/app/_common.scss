@@ -1,5 +1,5 @@
 .container{
-    @apply px-5;
+    @apply px-[var(--spacing-gutter)];
 }
 .link-hover{
     @apply relative inline-block;

@@ -19,7 +19,7 @@ const SECONDARY_LINKS = [
 function MenuIcon({ open }: { open: boolean }) {
   return (
     <>
-      <span className={`menu-icon ${open ? "open" : ""}`}>
+      <span className={`relative menu-icon ${open ? "open" : ""}`}>
         <span className="line line-top"></span>
         <span className="line line-mid"></span>
         <span className="line line-btm"></span>

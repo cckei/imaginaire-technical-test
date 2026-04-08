@@ -1,21 +1,16 @@
+import Link from "next/link";
+
 const FOOTER_LINKS = {
-  Shop: [
-    { label: "All Products", href: "/shop" },
-    { label: "New Arrivals", href: "/new" },
-    { label: "Best Sellers", href: "/best-sellers" },
-    { label: "Sale", href: "/sale" },
-  ],
   Company: [
+    { label: "Our Products", href: "/products" },
     { label: "About Us", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Press", href: "/press" },
-    { label: "Contact", href: "/contact" },
+    { label: "Inspiration Zone", href: "/" },
+    { label: "Contact Us", href: "/contact" },
   ],
-  Support: [
-    { label: "FAQ", href: "/faq" },
-    { label: "Shipping", href: "/shipping" },
-    { label: "Returns", href: "/returns" },
-    { label: "Size Guide", href: "/size-guide" },
+  Social: [
+    { label: "Facebook", href: "#" },
+    { label: "Instagram", href: "#" },
+    { label: "TikTok", href: "#" }
   ],
 };
 
@@ -39,68 +34,41 @@ const SOCIAL_ICONS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 bg-white">
-      <div className="mx-auto max-w-[1400px] px-6 py-14 mobile:py-10">
-        {/* Top row */}
-        <div className="grid gap-10 desktop:grid-cols-4 tablet:grid-cols-2">
-          {/* Brand column */}
-          <div>
-            <span className="text-lg font-bold tracking-tight">IMAGINAIRE</span>
-            <p className="mt-3 text-sm leading-relaxed text-gray-500">
-              Premium snowboards and gear for every rider. Crafted with care,
-              built for performance.
-            </p>
-            {/* Social icons */}
-            <div className="mt-5 flex items-center gap-4">
-              {SOCIAL_ICONS.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="text-gray-400 transition-colors supports-hover:hover:text-gray-900"
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d={social.path} />
-                  </svg>
-                </a>
-              ))}
+    <footer className="bg-black text-white py-20 text-lg">
+      <div className="max-w-[1200px] mx-auto px-5">
+        <div className="flex flex-col gap-20">
+          <div className="flex items-center justify-center gap-6 tablet:flex-col tablet:gap-4">
+            <span>For the love of the game</span>
+            <img src="/images/logo.svg" alt="Footer Logo" className="w-auto h-10 invert"/>
+            <span>For the love of the game</span>
+          </div>
+          <div className="flex items-start justify-between gap-6 tablet:flex-col tablet:gap-10">
+            <div>
+              <p className="leading-9">FTLOTG Snowboards<br />
+                1 Exeter Place<br />
+                Nottingham<br />
+                <a href="mailto:cs@ftlotg.co.uk">cs@ftlotg.co.uk</a>
+              </p>
+            </div>
+            <div>
+              <div className="flex flex-col leading-9">
+                {/* FOOTER_LINKS.company */}
+                {FOOTER_LINKS.Company.map((link) => (
+                  <Link href={link.href} key={link.label}>{link.label}</Link>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div className="flex flex-col leading-9">
+                {/* FOOTER_LINKS.social */}
+                {FOOTER_LINKS.Social.map((link) => (
+                  <Link href={link.href} key={link.label}>{link.label}</Link>
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Link columns */}
-          {Object.entries(FOOTER_LINKS).map(([title, links]) => (
-            <div key={title}>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
-                {title}
-              </h3>
-              <ul className="mt-4 flex flex-col gap-3">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-gray-500 transition-colors supports-hover:hover:text-gray-900"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-8 desktop:flex-row">
-          <p className="text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} Imaginaire. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <a href="/privacy" className="text-xs text-gray-400 transition-colors supports-hover:hover:text-gray-600">
-              Privacy Policy
-            </a>
-            <a href="/terms" className="text-xs text-gray-400 transition-colors supports-hover:hover:text-gray-600">
-              Terms of Service
-            </a>
+          <div className="text-center">
+            <span>Website by Imaginaire</span>
           </div>
         </div>
       </div>
