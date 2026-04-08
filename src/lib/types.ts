@@ -50,3 +50,54 @@ export interface ProductsResponse {
     }[];
   };
 }
+
+export interface ShopifyProductDetail {
+  id: string;
+  title: string;
+  handle: string;
+  description: string;
+  descriptionHtml: string;
+  priceRange: {
+    minVariantPrice: {
+      amount: string;
+      currencyCode: string;
+    };
+  };
+  compareAtPriceRange: {
+    minVariantPrice: {
+      amount: string;
+      currencyCode: string;
+    };
+  };
+  images: {
+    edges: {
+      node: ShopifyImage;
+    }[];
+  };
+  variants: {
+    edges: {
+      node: ShopifyVariant & {
+        priceV2: {
+          amount: string;
+          currencyCode: string;
+        };
+      };
+    }[];
+  };
+}
+
+export interface ProductByHandleResponse {
+  productByHandle: ShopifyProductDetail | null;
+}
+
+export interface CollectionProductsResponse {
+  products: {
+    pageInfo: {
+      hasNextPage: boolean;
+      endCursor: string | null;
+    };
+    edges: {
+      node: ShopifyProduct;
+    }[];
+  };
+}

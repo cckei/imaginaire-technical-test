@@ -3,17 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useCart } from "@/context/CartContext";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Our Products", href: "/products" },
+  { label: "Our Products", href: "/collections" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
-];
-
-const SECONDARY_LINKS = [
-  { label: "Search", href: "/search" },
-  { label: "Cart", href: "/cart" },
 ];
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -30,6 +26,7 @@ function MenuIcon({ open }: { open: boolean }) {
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { openCart, totalItems } = useCart();
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -50,7 +47,7 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 left-0 w-full z-[100] bg-white">
       <div className="container mx-auto">
-        <div className="flex items-center justify-between h-[var(--header-height)]">
+        <div className="flex items-center justify-between h-[var(--header-height)] tablet:justify-end">
           <button
             type="button"
             className="hidden tablet:inline-flex z-[103] fixed top-[calc(var(--header-height)/2)] -translate-y-1/2 left-[var(--spacing-gutter)]"
@@ -70,15 +67,23 @@ export default function Navigation() {
             ))}
           </nav>
 
-          <nav className="flex gap-6 tablet:hidden" aria-label="Secondary">
-            {SECONDARY_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} className="link-hover">
-                {link.label}
-              </Link>
-            ))}
+          <nav className="flex gap-6 items-center" aria-label="Secondary">
+            <Link href="" className="link-hover">
+              Search
+            </Link>
+            <button
+              type="button"
+              onClick={openCart}
+              className="link-hover relative"
+            >
+              Cart
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-4 flex h-4 w-4 items-center justify-center rounded-full bg-black text-[10px] text-white">
+                  {totalItems}
+                </span>
+              )}
+            </button>
           </nav>
-
-          <span className="hidden tablet:block w-10 flex-shrink-0" aria-hidden />
         </div>
       </div>
 
@@ -106,19 +111,6 @@ export default function Navigation() {
           <div className="flex flex-col pt-[calc(var(--header-height)+0.5rem)] px-5 pb-8 gap-1">
             <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Menu</p>
             {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="py-3 text-xl border-b border-gray-100 last:border-0"
-                onClick={closeMobile}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mt-6 mb-2">
-              More
-            </p>
-            {SECONDARY_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

@@ -132,6 +132,18 @@ body{
     }
   }
 
+  // Add to cart icon on hover
+  &__add-to-cart {
+    @apply flex h-10 w-10 items-center justify-center;
+    @apply rounded-full bg-white text-gray-900;
+    @apply transition-all duration-200;
+    @apply shadow-md;
+
+    &:hover {
+      @apply bg-black text-white scale-110;
+    }
+  }
+
   // Image lift on hover
   &__image {
     @apply transition-shadow duration-300;
@@ -140,7 +152,6 @@ body{
         img{
             @apply scale-105;
         }
-    //   @apply shadow-lg;
     }
   }
 }

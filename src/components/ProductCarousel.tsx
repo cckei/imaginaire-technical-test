@@ -49,15 +49,15 @@ export default function ProductCarousel({
       <div className="container">
 
         <div className="flex flex-col tablet:flex-col-reverse">
-        <div className="sticky top-0 tablet:top-auto tablet:bottom-0 z-30 bg-white py-10 tablet:py-6">
-            <div className="flex items-end justify-between mobile:flex-col mobile:gap-4 ">
+        <div className="sticky top-0 tablet:top-auto tablet:bottom-0 z-30 bg-white py-10 tablet:pb-6 tablet:pt-10">
+            <div className="flex items-end justify-between tablet:flex-col tablet:gap-4 tablet:items-start">
               <div>
                 <h2 className="text-3xl mb-2 tablet:text-xl">Snowboards</h2>
                 <p className="text-lg text-gray-500 tablet:text-base">
                   See our latest snowboards, in stock and ready to ship UK wide
                 </p>
               </div>
-              <a href="/collections" className="text-xl link-hover tablet:text-base">
+              <a href="/collections" className="text-xl link-hover tablet:text-base tablet:self-end">
                 View more
               </a>
             </div>
