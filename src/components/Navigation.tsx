@@ -109,7 +109,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="py-3 text-base border-b border-gray-100 last:border-0"
+                className="py-3 text-xl border-b border-gray-100 last:border-0"
                 onClick={closeMobile}
               >
                 {link.label}
@@ -122,7 +122,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="py-3 text-base border-b border-gray-100 last:border-0"
+                className="py-3 text-xl border-b border-gray-100 last:border-0"
                 onClick={closeMobile}
               >
                 {link.label}

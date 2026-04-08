@@ -11,7 +11,7 @@ export default function Btn({ size = "md", children, ...props }: { size?: "sm" |
     }
 
     return (
-        <button className={`btn-hover bg-black text-white rounded w-full ${sizeClasses[size]}`} {...props}>
+        <button className={`text-center btn-hover bg-black text-white rounded w-full ${sizeClasses[size]}`} {...props}>
             <span className="btn__text">{children}</span>
         </button>
     )
