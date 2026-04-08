@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { ShopifyProduct } from "@/lib/types";
+import Btn from "./Btn";
 
 function formatPrice(amount: string, currencyCode: string) {
   return new Intl.NumberFormat("en-US", {
@@ -35,14 +36,14 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
 
   return (
     <article
-      className="group flex flex-col"
+      className="group flex flex-col h-full"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Image */}
       <a
         href={`/products/${product.handle}`}
-        className="relative aspect-[3/4] overflow-hidden rounded-lg bg-gray-100"
+        className="relative aspect-[3/4] overflow-hidden rounded bg-gray-100 border border-gray-200"
       >
         {image && (
           <Image
@@ -68,7 +69,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
         )}
 
         {/* Hover overlay with quick actions */}
-        <div
+        {/* <div
           className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 transition-opacity duration-300 ${
             hovered ? "opacity-100" : "opacity-0"
           }`}
@@ -76,7 +77,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
           <button className="w-full rounded-full bg-white py-2.5 text-xs font-semibold text-gray-900 transition-colors supports-hover:hover:bg-gray-100">
             Quick View
           </button>
-        </div>
+        </div> */}
 
         {/* Sale badge */}
         {hasDiscount && (
@@ -87,28 +88,23 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
       </a>
 
       {/* Info */}
-      <div className="mt-3 flex flex-col gap-1">
-        <a
-          href={`/products/${product.handle}`}
-          className="text-sm font-medium text-gray-900 transition-colors supports-hover:hover:text-gray-600 line-clamp-1"
-        >
-          {product.title}
-        </a>
+      <div className="mt-3">
+        <div className="flex gap-2 justify-between items-start">
+          <a
+            href={`/products/${product.handle}`}
+            className="text-lg leading-6"
+          >
+            {product.title}
+          </a>
 
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold text-gray-900">
-            {formatPrice(price.amount, price.currencyCode)}
-          </span>
-          {hasDiscount && (
-            <span className="text-xs text-gray-400 line-through">
-              {formatPrice(compareAt.amount, compareAt.currencyCode)}
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-base text-gray-400">
+              {formatPrice(price.amount, price.currencyCode)}
             </span>
-          )}
+          </div>
         </div>
-
         {/* Color swatches on hover */}
-        <div
-          className={`flex items-center gap-1 transition-all duration-300 ${
+        {/* <div className={`flex items-center gap-1 transition-all duration-300 ${
             hovered ? "mt-1 max-h-8 opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
@@ -126,7 +122,12 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
               {availableCount} variant{availableCount !== 1 ? "s" : ""} available
             </span>
           )}
-        </div>
+        </div> */}
+      </div>
+      <span className="flex grow min-h-[20px]"></span>
+      {/* button */}
+      <div>
+        <Btn size="sm">View Product</Btn>
       </div>
     </article>
   );

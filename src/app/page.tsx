@@ -12,6 +12,8 @@ async function getProducts() {
     query: PRODUCTS_QUERY,
     variables: { first: 8 },
   });
+
+  console.log('data: ', JSON.stringify(data));
   return data.products.edges.map((edge) => edge.node);
 }
 

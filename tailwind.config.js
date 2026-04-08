@@ -5,13 +5,13 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontSize: {
-      xs: ["12px", "12px"],
-      sm: ["14px", "14px"],
-      base: ["16px", "16px"],
-      lg: ["20px", "20px"],
-      xl: ["24px", "24px"],
-      "2xl": ["36px", "36px"],
-      "3xl": ["48px", "48px"],
+      xs: ["12px", "1.2"],
+      sm: ["14px", "1.2"],
+      base: ["16px", "1.2"],
+      lg: ["20px", "1.2"],
+      xl: ["24px", "1.2"],
+      "2xl": ["36px", "1.2"],
+      "3xl": ["48px", "1.2"],
     },
     screens: {
       desktop: { min: "100%" },
