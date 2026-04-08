@@ -3,7 +3,9 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { IconShoppingBagPlus } from "@tabler/icons-react";
 import type { ShopifyProduct } from "@/lib/types";
+import { useCart } from "@/context/CartContext";
 import Btn from "./Btn";
 
 function formatPrice(amount: string, currencyCode: string) {
@@ -16,6 +18,7 @@ function formatPrice(amount: string, currencyCode: string) {
 export default function ProductCard({ product }: { product: ShopifyProduct }) {
   const [hovered, setHovered] = useState(false);
   const [activeColor, setActiveColor] = useState<string | null>(null);
+  const { addItem } = useCart();
 
   const image = product.images.edges[0]?.node;
   const secondImage = product.images.edges[1]?.node;
@@ -81,6 +84,23 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
 
   const productUrl = `/products/${product.handle}`;
 
+  const handleQuickAdd = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const firstAvailable = variants.find((v) => v.availableForSale);
+    if (!firstAvailable) return;
+    addItem({
+      variantId: firstAvailable.id,
+      productId: product.id,
+      title: product.title,
+      variantTitle: firstAvailable.title,
+      price: parseFloat(price.amount),
+      currencyCode: price.currencyCode,
+      image: image?.url,
+      handle: product.handle,
+    });
+  };
+
   return (
     <article
       className="product-card group flex flex-col h-full"
@@ -139,6 +159,17 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
             hovered ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
+          {/* Add to cart button — top right */}
+          {!allSoldOut && (
+            <button
+              type="button"
+              onClick={handleQuickAdd}
+              aria-label="Add to cart"
+              className="product-card__add-to-cart absolute top-3 right-3"
+            >
+              <IconShoppingBagPlus size={20} stroke={1.5} />
+            </button>
+          )}
           {/* Colour swatches */}
           {colorOptions.length > 0 && (
             <div className="flex items-center gap-2 mb-2 flex-wrap justify-center">
@@ -229,7 +260,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
 
       {/* CTA button */}
       <div>
-        <Btn size="sm" disabled={allSoldOut}>View Product</Btn>
+        <Link href={productUrl}><Btn size="sm" disabled={allSoldOut}>View Product</Btn></Link>
       </div>
     </article>
   );
