@@ -53,7 +53,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-[var(--header-height)]">
           <button
             type="button"
-            className="hidden tablet:inline-flex z-[103] fixed"
+            className="hidden tablet:inline-flex z-[103] fixed top-[calc(var(--header-height)/2)] -translate-y-1/2 left-[var(--spacing-gutter)]"
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}

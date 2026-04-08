@@ -43,3 +43,8 @@
         }
     }
 }
+
+// ── Hero parallax ──
+.hero-parallax {
+    @apply relative overflow-hidden;
+}

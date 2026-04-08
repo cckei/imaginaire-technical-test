@@ -1,29 +1,50 @@
-export default function Hero() {
-  return (
-    <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-gray-900">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
-        style={{ backgroundImage: "url('/snowboard-1.jpg')" }}
-      />
+"use client";
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center text-white">
-        <h1 className="text-4xl font-bold leading-tight tracking-tight mobile:text-3xl desktop:text-6xl">
-          Ride the Mountain.
-          <br />
-          Own the Moment.
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-gray-200 mobile:text-base">
-          Premium snowboards crafted for every terrain and every rider. From
-          powder-fresh backcountry to park perfection — find your next board.
-        </p>
-        <a
-          href="/shop"
-          className="mt-8 inline-block rounded-full bg-white px-8 py-3 text-sm font-semibold text-gray-900 transition-all supports-hover:hover:bg-gray-100 supports-hover:hover:scale-105"
-        >
-          Shop Collection
-        </a>
+import Link from "next/link"
+import { useState, useEffect } from "react";
+
+
+const HERO_CONTENT = {
+  heading: "Ride the Mountain.",
+  body: "Own the Moment.",
+  cta: "Shop the latest",
+}
+
+export default function Hero() {
+
+  const [heroPosition, setHeroPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const multiplier = 0.42;
+      setHeroPosition(scrollY * multiplier);
+    };
+    const scrollOpts: AddEventListenerOptions = { passive: true };
+    window.addEventListener("scroll", handleScroll, scrollOpts);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll, scrollOpts);
+  }, []);
+
+
+  return (
+    <section className="hero-parallax h-[calc(100dvh-var(--header-height))]">
+      <img
+        src="/images/hero.jpg"
+        alt="Hero Background"
+        className="hero-parallax__image"
+        style={{ transform: `translate3d(0, ${heroPosition}px, 0)` }}
+        draggable={false}
+      />
+      <div className="hero-parallax__content">
+        {HERO_CONTENT.cta && (
+          <Link
+            href="/shop"
+            className="hero-parallax__cta absolute bottom-8 right-[var(--spacing-gutter)] text-3xl text-white"
+          >
+            {HERO_CONTENT.cta}
+          </Link>
+        )}
       </div>
     </section>
   );
