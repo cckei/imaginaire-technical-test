@@ -32,7 +32,7 @@ export default function Hero() {
       <img
         src="/images/hero.jpg"
         alt="Hero Background"
-        className="hero-parallax__image"
+        className="absolute top-0 left-0 w-full h-full object-cover"
         style={{ transform: `translate3d(0, ${heroPosition}px, 0)` }}
         draggable={false}
       />

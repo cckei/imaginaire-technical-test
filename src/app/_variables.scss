@@ -1,6 +1,9 @@
 :root{
     --header-height: 82px;
-
     --spacing-gutter: 20px;
     --spacing-section: 112px;
+
+    @media (max-width: 768px) {
+        --spacing-section: 60px;
+    }
 }
