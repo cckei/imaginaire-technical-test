@@ -40,9 +40,9 @@ export default function Hero() {
         {HERO_CONTENT.cta && (
           <Link
             href="/shop"
-            className="hero-parallax__cta absolute bottom-8 right-[var(--spacing-gutter)] text-3xl text-white"
+            className="absolute bottom-8 right-[var(--spacing-gutter)] text-3xl text-white"
           >
-            {HERO_CONTENT.cta}
+            <span className="hero-parallax__cta">{HERO_CONTENT.cta}</span>
           </Link>
         )}
       </div>
