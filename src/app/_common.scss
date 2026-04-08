@@ -147,6 +147,10 @@ body{
   // Image lift on hover
   &__image {
     @apply transition-shadow duration-300;
+    @apply bg-no-repeat bg-center;
+    background-image: url('/images/logo-white-placeholder.png');
+    background-size: 100px;
+
 
     .group:hover & {
         img{

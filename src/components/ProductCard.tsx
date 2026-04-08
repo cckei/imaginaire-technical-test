@@ -78,6 +78,8 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
     }
   };
 
+
+
   const availableCount = variants.filter((v) => v.availableForSale).length;
   const totalCount = variants.length;
   const allSoldOut = availableCount === 0;
@@ -112,6 +114,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
         href={productUrl}
         className="product-card__image relative aspect-[3/4] overflow-hidden rounded bg-gray-100 border border-gray-200 block"
       >
+
         {/* Primary image */}
         {image && (
           <Image
