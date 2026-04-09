@@ -10,8 +10,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Imaginaire",
-  description: "Shopify Developer — Tech Test",
+  title: {
+    default: "Imaginaire",
+    template: "%s — Imaginaire",
+  },
+  description: "Premium snowboards and gear by Imaginaire.",
+  openGraph: {
+    type: "website",
+    siteName: "Imaginaire",
+    title: "Imaginaire",
+    description: "Premium snowboards and gear by Imaginaire.",
+    images: [{ url: "/ogimag.jpg" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Imaginaire",
+    description: "Premium snowboards and gear by Imaginaire.",
+    images: ["/ogimag.jpg"],
+  },
+  icons: {
+    icon: [{ url: "/images/logo.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

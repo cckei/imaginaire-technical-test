@@ -1,17 +1,15 @@
 "use client";
 
-import Link from "next/link"
+import Link from "next/link";
 import { useState, useEffect } from "react";
-
 
 const HERO_CONTENT = {
   heading: "Ride the Mountain.",
-  body: "Own the Moment.",
+  body: "Own the moment with boards built for control, speed, and style.",
   cta: "Shop the latest",
-}
+};
 
 export default function Hero() {
-
   const [heroPosition, setHeroPosition] = useState(0);
 
   useEffect(() => {
@@ -26,17 +24,20 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll, scrollOpts);
   }, []);
 
-
   return (
     <section className="hero-parallax h-[calc(100dvh-var(--header-height))]">
       <img
         src="/images/hero.jpg"
-        alt="Hero Background"
+        alt=""
         className="absolute top-0 left-0 w-full h-full object-cover"
         style={{ transform: `translate3d(0, ${heroPosition}px, 0)` }}
         draggable={false}
       />
       <div className="hero-parallax__content">
+        <div className="absolute left-[var(--spacing-gutter)] top-24 max-w-[42rem] text-white">
+          <h1 className="text-5xl tracking-tight">{HERO_CONTENT.heading}</h1>
+          <p className="mt-4 text-2xl text-white/90">{HERO_CONTENT.body}</p>
+        </div>
         {HERO_CONTENT.cta && (
           <Link
             href="/shop"
