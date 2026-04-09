@@ -8,10 +8,22 @@ module.exports = {
       xs: ["12px", "1.2"],
       sm: ["14px", "1.2"],
       base: ["16px", "1.2"],
-      lg: ["20px", "1.2"],
-      xl: ["24px", "1.2"],
-      "2xl": ["36px", "1.2"],
-      "3xl": ["48px", "1.2"],
+      lg: [
+        "clamp(18px, calc(18px + 2 * ((100vw - 1024px) / 536)), 20px)",
+        "1.2",
+      ],
+      xl: [
+        "clamp(20px, calc(20px + 4 * ((100vw - 1024px) / 536)), 24px)",
+        "1.2",
+      ],
+      "2xl": [
+        "clamp(28px, calc(28px + 8 * ((100vw - 1024px) / 536)), 36px)",
+        "1.2",
+      ],
+      "3xl": [
+        "clamp(36px, calc(36px + 12 * ((100vw - 1024px) / 536)), 48px)",
+        "1.2",
+      ],
     },
     screens: {
       desktopXl: { min: "1560px" },
