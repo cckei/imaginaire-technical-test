@@ -119,7 +119,7 @@ export default function Navigation() {
                     : "opacity-0 -translate-x-2"
                 } transition-[opacity,transform] duration-300 ease-out`}
                 style={{
-                  transitionDelay: mobileOpen ? `${80 + idx * 70}ms` : "0ms",
+                  transitionDelay: mobileOpen ? `${100 + idx * 80}ms` : "0ms",
                 }}
                 onClick={closeMobile}
               >

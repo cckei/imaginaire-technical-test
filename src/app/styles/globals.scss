@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 @import "./variables";
+@import "./mixins";
 @import "./common";
+@import "./components";
 
 @theme {
 }
