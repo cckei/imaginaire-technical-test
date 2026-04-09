@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-parallax h-[calc(100dvh-var(--header-height))]">
+    <section className="hero-parallax h-[calc(100dvh-var(--header-height))] tablet:h-[80vw] tablet:min-h-[400px]">
       <Image src="/images/hero.jpg" alt="Hero Background" className="absolute top-0 left-0 w-full h-full object-cover" width={1000} height={1000} style={{ transform: `translate3d(0, ${heroPosition}px, 0)` }} draggable={false} />
       <div className="hero-parallax__content">
         <div className="absolute left-[var(--spacing-gutter)] top-6 max-w-[42rem] text-white">
