@@ -53,15 +53,17 @@
     .product-card__overlay{
       @apply opacity-0 pointer-events-none;
     }
-    &:hover{
-      .image--primary{
-        @apply scale-105;
-      }
-      .image--secondary{
-        @apply opacity-100 scale-105;
-      }
-      .product-card__overlay{
-        @apply opacity-100 pointer-events-auto;
+    @media (hover: hover) {
+      &:hover{
+        .image--primary{
+          @apply scale-105;
+        }
+        .image--secondary{
+          @apply opacity-100 scale-105;
+        }
+        .product-card__overlay{
+          @apply opacity-100 pointer-events-auto;
+        }
       }
     }
     // hover states control END
@@ -90,8 +92,10 @@
       @apply text-xs font-semibold text-gray-900;
       @apply transition-colors duration-200;
   
-      &:hover {
-        @apply bg-gray-100;
+      @media (hover: hover) {
+        &:hover {
+          @apply bg-gray-100;
+        }
       }
     }
   
@@ -102,8 +106,10 @@
       @apply border border-white/40 bg-white/10 backdrop-blur-sm;
       @apply transition-all duration-200;
   
-      &:hover:not(:disabled) {
-        @apply bg-white text-gray-900;
+      @media (hover: hover) {
+        &:hover:not(:disabled) {
+          @apply bg-white text-gray-900;
+        }
       }
   
       &--oos {
@@ -117,8 +123,10 @@
       @apply transition-all duration-200 cursor-pointer;
       // @apply ring-0 ring-offset-1 ring-black;
   
-      &:hover {
-        @apply scale-110;
+      @media (hover: hover) {
+        &:hover {
+          @apply scale-110;
+        }
       }
   
       &--active {
@@ -133,8 +141,10 @@
       @apply transition-all duration-200;
       @apply shadow-md;
   
-      &:hover {
-        @apply bg-black text-white scale-110;
+      @media (hover: hover) {
+        &:hover {
+          @apply bg-black text-white scale-110;
+        }
       }
     }
   
@@ -145,11 +155,12 @@
       background-image: url('/images/logo-white-placeholder.png');
       background-size: 100px;
   
-  
-      .group:hover & {
-          img{
-              @apply scale-105;
-          }
+      @media (hover: hover) {
+        .group:hover & {
+            img{
+                @apply scale-105;
+            }
+        }
       }
     }
   }
