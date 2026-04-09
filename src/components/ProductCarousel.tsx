@@ -52,16 +52,12 @@ export default function ProductCarousel({
            tablet:backdrop-blur-md tablet:bg-white/80
           ">
             <div className="container">
-              <div className="flex items-end justify-between tablet:flex-col tablet:gap-4 tablet:items-start">
+              <div className="flex items-end justify-between gap-6 tablet:items-center">
                 <div>
                   <h2 className="text-3xl mb-2 tablet:text-xl">Snowboards</h2>
-                  <p className="text-lg text-gray-500 tablet:text-base">
-                    See our latest snowboards, in stock and ready to ship UK wide
-                  </p>
+                  <p className="text-lg text-gray-500 tablet:text-base">See our latest snowboards, in stock and ready to ship UK wide</p>
                 </div>
-                <a href="/collections" className="text-xl link-hover tablet:text-base tablet:self-end">
-                  View more
-                </a>
+                <a href="/collections" className="text-xl link-hover tablet:text-base text-nowrap">View more</a>
               </div>
             </div>
           </div>
