@@ -29,9 +29,9 @@ export default function Hero() {
     <section className="hero-parallax h-[calc(100dvh-var(--header-height))]">
       <Image src="/images/hero.jpg" alt="Hero Background" className="absolute top-0 left-0 w-full h-full object-cover" width={1000} height={1000} style={{ transform: `translate3d(0, ${heroPosition}px, 0)` }} draggable={false} />
       <div className="hero-parallax__content">
-        <div className="absolute left-[var(--spacing-gutter)] top-24 max-w-[42rem] text-white">
-          <h1 className="text-5xl tracking-tight">{HERO_CONTENT.heading}</h1>
-          <p className="mt-4 text-2xl text-white/90">{HERO_CONTENT.body}</p>
+        <div className="absolute left-[var(--spacing-gutter)] top-6 max-w-[42rem] text-white">
+          {/* <h1 className="text-5xl tracking-tight">{HERO_CONTENT.heading}</h1>
+          <p className="mt-4 text-2xl text-white/90">{HERO_CONTENT.body}</p> */}
         </div>
         {HERO_CONTENT.cta && (
           <Link

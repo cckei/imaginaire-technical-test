@@ -3,7 +3,7 @@ body{
 }
 
 .container{
-    @apply px-[var(--spacing-gutter)];
+    @apply px-[var(--spacing-gutter)] desktop:w-full desktop:max-w-none;
 }
 .link-hover{
     @include link-hover();

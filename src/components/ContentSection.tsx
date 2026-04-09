@@ -28,7 +28,7 @@ export default function ContentSection({
           <h3 className="absolute top-6 left-6 text-3xl tablet:text-2xl">{heading}</h3>
           {/* image */}
           <div>
-            <Image src={image} alt={heading} width={1000} height={1000} />
+            <Image src={image} alt={heading} width={1000} height={1000} className="object-cover block w-full" />
           </div>
           {/* content */}
           <div className={`absolute w-full h-auto max-h-[70%] overflow-y-auto pb-10 bottom-0 left-0 bg-black text-white z-[3] transition-transform duration-300 ease-in-out 
