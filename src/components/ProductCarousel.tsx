@@ -48,7 +48,9 @@ export default function ProductCarousel({
     <section className="relative mb-20 tablet:mb-0 tablet:mt-10 section-carousel">
       <div className="">
         <div className="flex flex-col tablet:flex-col-reverse">
-          <div className="tablet:sticky tablet:top-auto tablet:bottom-0 z-30 bg-white py-10 tablet:pb-6 tablet:pt-10">
+          <div className="tablet:sticky tablet:top-auto tablet:bottom-0 z-30 bg-white py-10 tablet:py-4
+           tablet:backdrop-blur-md tablet:bg-white/80
+          ">
             <div className="container">
               <div className="flex items-end justify-between tablet:flex-col tablet:gap-4 tablet:items-start">
                 <div>
@@ -63,7 +65,7 @@ export default function ProductCarousel({
               </div>
             </div>
           </div>
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden tablet:mb-6">
             <Swiper
               onSwiper={onSwiperInit}
               onSlideChange={onSlideChange}
