@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { shopifyFetch } from "@/lib/shopify";
 import { PRODUCTS_QUERY } from "@/lib/queries";
 import type { ProductsResponse } from "@/lib/types";
@@ -7,13 +8,17 @@ import ProductCarousel from "@/components/ProductCarousel";
 import ContentSection from "@/components/ContentSection";
 import Footer from "@/components/Footer";
 
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Shop the latest snowboards and gear from Imaginaire.",
+};
+
 async function getProducts() {
   const data = await shopifyFetch<ProductsResponse>({
     query: PRODUCTS_QUERY,
     variables: { first: 8 },
   });
 
-  console.log('data: ', JSON.stringify(data));
   return data.products.edges.map((edge) => edge.node);
 }
 

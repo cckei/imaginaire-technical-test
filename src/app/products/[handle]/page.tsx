@@ -24,9 +24,25 @@ async function getProduct(handle: string) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const product = await getProduct(params.handle);
   if (!product) return { title: "Product Not Found" };
+  const description = product.description?.slice(0, 160) || "";
+  const canonical = `/products/${product.handle}`;
   return {
     title: `${product.title} — Imaginaire`,
-    description: product.description?.slice(0, 160) || "",
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title: product.title,
+      description,
+      url: canonical,
+      type: "website",
+      images: [{ url: "/ogimag.jpg" }],
+    },
+    twitter: {
+      card: "summary",
+      title: product.title,
+      description,
+      images: ["/ogimag.jpg"],
+    },
   };
 }
 
