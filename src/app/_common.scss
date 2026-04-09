@@ -71,6 +71,12 @@ body{
     }
 }
 
+.section-carousel{
+  .swiper{
+    @apply overflow-visible px-[var(--spacing-gutter)];
+  }
+}
+
 // ── Product card ──
 .product-card {
   &__badge {
