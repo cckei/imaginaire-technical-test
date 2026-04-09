@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.scss";
+import "./styles/globals.scss";
 import { CartProvider } from "@/context/CartContext";
 import CartAside from "@/components/CartAside";
 
