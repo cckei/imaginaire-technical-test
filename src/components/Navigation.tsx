@@ -109,12 +109,18 @@ export default function Navigation() {
           aria-hidden={!mobileOpen}
         >
           <div className="flex flex-col pt-[calc(var(--header-height)+0.5rem)] px-5 pb-8 gap-1">
-            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Menu</p>
-            {NAV_LINKS.map((link) => (
+            {NAV_LINKS.map((link, idx) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="py-3 text-xl border-b border-gray-100 last:border-0"
+                className={`py-3 text-xl border-b border-gray-100 last:border-0 will-change-transform motion-reduce:transition-none motion-reduce:transform-none ${
+                  mobileOpen
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-2"
+                } transition-[opacity,transform] duration-300 ease-out`}
+                style={{
+                  transitionDelay: mobileOpen ? `${80 + idx * 70}ms` : "0ms",
+                }}
                 onClick={closeMobile}
               >
                 {link.label}
