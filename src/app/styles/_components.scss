@@ -45,6 +45,28 @@
 
 // ── Product card ──
 .product-card {
+
+    // hover states control START
+    .image--secondary{
+      @apply opacity-0 scale-100;
+    }
+    .product-card__overlay{
+      @apply opacity-0 pointer-events-none;
+    }
+    &:hover{
+      .image--primary{
+        @apply scale-105;
+      }
+      .image--secondary{
+        @apply opacity-100 scale-105;
+      }
+      .product-card__overlay{
+        @apply opacity-100 pointer-events-auto;
+      }
+    }
+    // hover states control END
+
+
     &__badge {
       @apply inline-block rounded-full px-2.5 py-1;
       @apply text-[10px] font-bold uppercase tracking-wider text-white;

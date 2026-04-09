@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Btn from "./Btn";
+import Image from "next/image";
 
 
 const FOOTER_LINKS = {
@@ -31,7 +32,7 @@ export default function Footer() {
           <div className="flex flex-col gap-20">
             <div className="flex items-center justify-center gap-6 tablet:flex-col tablet:gap-4">
               <span>For the love of the game</span>
-              <img src="/images/logo.svg" alt="Footer Logo" className="w-auto h-10 invert"/>
+              <Image src="/images/logo.svg" alt="Footer Logo" className="w-auto h-10 invert" width={100} height={100} />
               <span>For the love of the game</span>
             </div>
             <div className="flex items-start justify-between gap-6 tablet:flex-col tablet:gap-10">

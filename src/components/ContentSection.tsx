@@ -3,7 +3,7 @@
 import { IconPlus, IconMinus, IconChevronRight } from "@tabler/icons-react";
 import { useState } from "react";
 import Link from "next/link";
-
+import Image from "next/image";
 interface ContentSectionProps {
   heading?: string;
   body?: string;
@@ -27,7 +27,9 @@ export default function ContentSection({
           {/* heading */}
           <h3 className="absolute top-6 left-6 text-3xl tablet:text-2xl">{heading}</h3>
           {/* image */}
-          <div><img src={image} alt={heading} /></div>
+          <div>
+            <Image src={image} alt={heading} width={1000} height={1000} />
+          </div>
           {/* content */}
           <div className={`absolute w-full h-auto max-h-[70%] overflow-y-auto pb-10 bottom-0 left-0 bg-black text-white z-[3] transition-transform duration-300 ease-in-out 
             ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}>
