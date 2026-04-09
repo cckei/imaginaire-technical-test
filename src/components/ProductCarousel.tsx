@@ -49,7 +49,7 @@ export default function ProductCarousel({
       <div className="container">
 
         <div className="flex flex-col tablet:flex-col-reverse">
-        <div className="sticky top-0 tablet:top-auto tablet:bottom-0 z-30 bg-white py-10 tablet:pb-6 tablet:pt-10">
+        <div className="tablet:sticky tablet:top-auto tablet:bottom-0 z-30 bg-white py-10 tablet:pb-6 tablet:pt-10">
             <div className="flex items-end justify-between tablet:flex-col tablet:gap-4 tablet:items-start">
               <div>
                 <h2 className="text-3xl mb-2 tablet:text-xl">Snowboards</h2>
