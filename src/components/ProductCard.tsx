@@ -16,7 +16,6 @@ function formatPrice(amount: string, currencyCode: string) {
 }
 
 export default function ProductCard({ product }: { product: ShopifyProduct }) {
-  const [hovered, setHovered] = useState(false);
   const [activeColor, setActiveColor] = useState<string | null>(null);
   const { addItem } = useCart();
 
@@ -106,8 +105,6 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
   return (
     <article
       className="product-card group flex flex-col h-full"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       {/* Image container */}
       <Link
@@ -122,11 +119,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
             alt={image.altText || product.title}
             fill
             sizes="(max-width: 720px) 80vw, (max-width: 1024px) 45vw, 25vw"
-            className={`object-cover transition-all duration-500 ${
-              hovered && secondImage
-                ? "opacity-0 scale-105"
-                : "opacity-100 scale-100"
-            }`}
+            className={`image--primary object-cover transition-all duration-500`}
           />
         )}
         {/* Secondary image on hover */}
@@ -136,9 +129,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
             alt={secondImage.altText || product.title}
             fill
             sizes="(max-width: 720px) 80vw, (max-width: 1024px) 45vw, 25vw"
-            className={`object-cover transition-all duration-500 ${
-              hovered ? "opacity-100 scale-100" : "opacity-0 scale-110"
-            }`}
+            className={`image--secondary object-cover transition-all duration-500`}
           />
         )}
 
@@ -158,9 +149,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
 
         {/* Hover overlay — variant info + quick actions */}
         <div
-          className={`product-card__overlay absolute inset-0 z-[3] flex flex-col items-center justify-end p-4 transition-opacity duration-300 ${
-            hovered ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+          className={`product-card__overlay absolute inset-0 z-[3] flex flex-col items-center justify-end p-4 transition-opacity duration-300`}
         >
           {/* Add to cart button — top right */}
           {!allSoldOut && (

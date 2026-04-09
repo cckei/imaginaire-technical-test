@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 
 const HERO_CONTENT = {
@@ -29,13 +30,7 @@ export default function Hero() {
 
   return (
     <section className="hero-parallax h-[calc(100dvh-var(--header-height))]">
-      <img
-        src="/images/hero.jpg"
-        alt="Hero Background"
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        style={{ transform: `translate3d(0, ${heroPosition}px, 0)` }}
-        draggable={false}
-      />
+      <Image src="/images/hero.jpg" alt="Hero Background" className="absolute top-0 left-0 w-full h-full object-cover" width={1000} height={1000} style={{ transform: `translate3d(0, ${heroPosition}px, 0)` }} draggable={false} />
       <div className="hero-parallax__content">
         {HERO_CONTENT.cta && (
           <Link
