@@ -6,7 +6,9 @@
         @apply scale-x-0 transition-transform duration-300 ease-in-out;
         @apply origin-bottom-right;
     }
-    &:hover:after{
-        @apply scale-x-100 origin-bottom-left;
+    @media (hover: hover) {
+        &:hover:after{
+            @apply scale-x-100 origin-bottom-left;
+        }
     }
 }

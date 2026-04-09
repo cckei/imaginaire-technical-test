@@ -14,7 +14,8 @@ module.exports = {
       "3xl": ["48px", "1.2"],
     },
     screens: {
-      desktop: { min: "100%" },
+      desktopXl: { min: "1560px" },
+      desktop: { min: "1025px" },
       laptop: { max: "1300px" },
       tablet: { max: "1024px" },
       mobile: { max: "720px" },
